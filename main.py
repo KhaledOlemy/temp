@@ -12,3 +12,4 @@ print(30+adder(0))
 
 
 print('git is awesome')
+print('hi everyone')
