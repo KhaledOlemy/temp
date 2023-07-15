@@ -9,3 +9,6 @@ def adder(number, value=4):
 
 adder(26)
 print(30+adder(0))
+
+
+print('git is awesome')
