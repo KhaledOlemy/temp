@@ -1,3 +1,4 @@
+
 import re
 import math
 # preparatory tip for extra guidance
@@ -13,3 +14,5 @@ a = b + c
 e = c * f + 405
 adder(26)
 print('git is awesome')
+
+# open world
