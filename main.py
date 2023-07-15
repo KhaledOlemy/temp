@@ -1,5 +1,7 @@
 import re
 import math
+# preparatory tip
+
 
 number = 10
 
