@@ -13,4 +13,7 @@ print(30+adder(0))
 
 print('git is awesome')
 print('hi everyone')
-# this is also hashed
+
+print('a line was removed, and this is a new one')
+
+print('also a new one')

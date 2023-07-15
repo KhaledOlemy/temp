@@ -7,5 +7,9 @@ def remove_white_spaces(x):
     return(y)
 
 remove_white_spaces("  this is    a looong sentenc         e")
-print('this should be a new line')
+
+# removed a print
+
 # this is hashed
+
+# new line here
