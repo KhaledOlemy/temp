@@ -1,6 +1,6 @@
 import re
 import math
-# preparatory tip
+# preparatory tip for extra guidance
 
 
 number = 10
@@ -10,7 +10,7 @@ def adder(number, value=4):
     return out
 
 a = b + c
-e = c * f
+e = c * f + 405
 adder(26)
 print('git is awesome')
 
