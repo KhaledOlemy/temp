@@ -14,6 +14,4 @@ e = c * f + 405
 adder(26)
 print('git is awesome')
 
-print("we're here to help git rid of excess lines")
-print("here's another edit for you")
-print('here is my part')
+
