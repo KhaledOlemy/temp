@@ -1,7 +1,7 @@
 import re
 import math
 # preparatory tip for extra guidance
-
+# new note
 
 number = 10
 
