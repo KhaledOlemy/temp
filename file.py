@@ -8,3 +8,4 @@ def remove_white_spaces(x):
 
 remove_white_spaces("  this is    a looong sentenc         e")
 print('this should be a new line')
+# this is hashed
