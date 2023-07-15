@@ -10,6 +10,7 @@ def adder(number, value=4):
     return out
 
 a = b + c
+e = c * f
 adder(26)
 print('git is awesome')
 
