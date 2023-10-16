@@ -4,7 +4,7 @@ void string_splitter(char *arr[], char *str, char *dlm)
 {
 	char *piece;
 	int ctr = 0;
-	
+
 	piece = strtok(str, dlm);
 	if (piece)
 	{

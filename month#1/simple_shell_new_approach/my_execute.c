@@ -3,11 +3,9 @@
 void my_execute(char *cmd, char *envv[])
 {
 	pid_t c_p;
-	int i = 0, q = 0;
-	char *temp[1024];
-	char *venv[1024];
-	char *honda;
-	
+	char *temp[1024], *venv[1024];
+	char *honda, *foundit;
+
 	int z = 0;
 	while (environ[z])
 	{
@@ -17,7 +15,7 @@ void my_execute(char *cmd, char *envv[])
 	venv[z] = NULL;
 	string_splitter(temp, cmd, "\n ");
 	honda = _strdup(temp[0]);
-	char *foundit = search_in_paths(temp[0], envv);
+	foundit = search_in_paths(temp[0], envv);
 	if (!foundit)
 	{
 		free(foundit);

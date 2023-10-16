@@ -13,8 +13,8 @@ char *path_finder(void)
 	char *path = "PATH=";
 	int c = 0;
 	char *str = NULL;
-	char *arr[1024];
-	
+	char *piece;
+
 	while (environ[c])
 	{
 		if (starts_with(environ[c], path))
@@ -23,10 +23,9 @@ char *path_finder(void)
 		}
 		c++;
 	}
-	// printf("%s\n", str);
-	char *piece;
+	/* printf("%s\n", str);*/
+
 	piece = strtok(str, "=");
-	
 	piece = strtok(NULL, "=");
 	return (piece);
 }
