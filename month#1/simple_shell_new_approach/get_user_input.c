@@ -1,11 +1,17 @@
 #include "header.h"
+/* gets user input using getline */
 char *get_user_input()
 {
 	size_t n = 1024;
 	char *buf = NULL, *str;
-	
+	int nchar_read;
 	buf = malloc(sizeof(char) * n);
-	getline(&buf, &n, stdin);
+	nchar_read = getline(&buf, &n, stdin);
+	if (nchar_read == -1)
+	{
+		printf("Exiting shell");
+		return (NULL);
+	}
 	str = _strdup(buf);
 	free(buf);
 	return (str);

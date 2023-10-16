@@ -1,19 +1,24 @@
 #include "header.h"
-
-char **string_splitter(char *str, char *dlm)
+/* splits string into array of strings */
+void string_splitter(char *arr[], char *str, char *dlm)
 {
-	char *out[1024] = {};
 	char *piece;
 	int ctr = 0;
 	
 	piece = strtok(str, dlm);
-	while (piece)
+	if (piece)
 	{
-		out[ctr] = malloc(strlen(piece) * sizeof(char));
-		out[ctr] = _strdup(piece);
-		piece = strtok(NULL, dlm);
-		ctr += 1;
+		while (piece)
+		{
+			arr[ctr] = _strdup(piece);
+			piece = strtok(NULL, dlm);
+			ctr += 1;
+		}
+		arr[ctr] = NULL;
+		return;
 	}
-	char **dox = out;
-	return (dox);
+	else
+	{
+		return;
+	}
 }

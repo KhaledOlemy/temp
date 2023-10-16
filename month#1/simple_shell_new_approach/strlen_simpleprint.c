@@ -1,5 +1,5 @@
 #include "header.h"
-
+/* calculates string length */
 int my_strlen(char *str)
 {
 	int i = 0;
@@ -10,6 +10,7 @@ int my_strlen(char *str)
 	}
 	return (i);
 }
+/* simple print function */
 void simple_print(char *str)
 {
 	write(1, str, my_strlen(str));
