@@ -20,13 +20,13 @@ void my_execute(char *cmd, char *envv[])
 	if (!foundit)
 	{
 		free(foundit);
-		printf("Command '%s' not found\n", temp[0]);
+		_printf("Command '%s' not found\n", temp[0]);
 		return;
 	}
 	c_p = fork();
 	if (c_p == -1)
 	{
-		simple_print("Error forking\n");
+		_printf("Error forking\n");
 		exit(1);
 	}
 	if (c_p == 0)
@@ -34,7 +34,7 @@ void my_execute(char *cmd, char *envv[])
 		execve(honda, temp, venv);
 		if (execve(foundit, temp, venv) == -1) /*string type []*/
 		{
-			printf("Command '%s' not found\n", honda);
+			_printf("Command '%s' not found\n", honda);
 		}
 		free(foundit);
 

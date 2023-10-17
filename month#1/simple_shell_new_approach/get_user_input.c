@@ -8,10 +8,10 @@ char *get_user_input()
 
 	buf = malloc(sizeof(char) * n);
 	nchar_read = getline(&buf, &n, stdin);
-	printf("%s\n", buf);
+	_printf("%s\n", buf);
 	if (nchar_read == -1)
 	{
-		printf("Exiting shell");
+		_printf("Exiting shell");
 		return (NULL);
 	}
 	str = _strdup(buf);

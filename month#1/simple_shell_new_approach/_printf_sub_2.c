@@ -1,4 +1,4 @@
-#include "_printf_header.h"
+#include "header.h"
 /**
  * _print_string - sub function of _printf to print strings
  * @s: input string to print

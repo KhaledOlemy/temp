@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "header.h"
 /**
  * _strdup- copies a string to a new location using malloc
  * @str: string to be copied

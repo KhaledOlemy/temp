@@ -12,13 +12,9 @@ int pre_line(void)
 		user = getlogin();
 		getcwd(cwd, sizeof(cwd));
 		gethostname(host, sizeof(host));
-		printf("%s@%s:%s$ ", user, host, cwd);
+		_printf("%s@%s:%s$ ", user, host, cwd);
 		*/
-		printf("$ ");
-	}
-	else
-	{
-		printf("IMPLEMENT HERE ::PRE_LINE.C::");
+		_printf("$ ");
 	}
 	return (0);
 }
