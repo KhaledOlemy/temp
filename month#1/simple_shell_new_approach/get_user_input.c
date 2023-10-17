@@ -5,8 +5,10 @@ char *get_user_input()
 	size_t n = 1024;
 	char *buf = NULL, *str;
 	int nchar_read;
+
 	buf = malloc(sizeof(char) * n);
 	nchar_read = getline(&buf, &n, stdin);
+	printf("%s\n", buf);
 	if (nchar_read == -1)
 	{
 		printf("Exiting shell");

@@ -10,6 +10,7 @@ int my_strlen(char *str)
 	}
 	return (i);
 }
+
 /* simple print function */
 void simple_print(char *str)
 {

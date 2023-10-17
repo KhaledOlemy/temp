@@ -2,12 +2,10 @@
 /* main function */
 int main(void)
 {
-	char *cmd;
-	char *envv[1024];
-	int i = 0;
-	char *path;
-
-	while (1)
+	char *cmd, *path, *envv[1024];
+	int i = 0, controller = 0;
+	
+	while (controller != 1)
 	{
 		pre_line();
 		cmd = get_user_input();
@@ -15,6 +13,10 @@ int main(void)
 		string_splitter(envv, path, ":");
 		my_execute(cmd, envv);
 		free(cmd);
+		if (!isatty(STDIN_FILENO))
+		{
+			return (0);
+		}
 	}
 	while (envv[i])
 	{
