@@ -15,7 +15,7 @@
 extern char **environ;
 int my_strlen(char *str);
 void simple_print(char *str);
-void my_execute(char *cmd, char *envv[]);
+int my_execute(char *cmd, char *envv[]);
 int pre_line(void);
 char *_strdup(char *str);
 char *get_user_input();

@@ -8,7 +8,6 @@ char *get_user_input()
 
 	buf = malloc(sizeof(char) * n);
 	nchar_read = getline(&buf, &n, stdin);
-	_printf("%s\n", buf);
 	if (nchar_read == -1)
 	{
 		_printf("Exiting shell");

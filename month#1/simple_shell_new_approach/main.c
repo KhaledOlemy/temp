@@ -3,7 +3,7 @@
 int main(void)
 {
 	char *cmd, *path, *envv[1024];
-	int i = 0, controller = 0;
+	int i = 0, controller = 0, status;
 	
 	while (controller != 1)
 	{
@@ -11,7 +11,11 @@ int main(void)
 		cmd = get_user_input();
 		path = path_finder();
 		string_splitter(envv, path, ":");
-		my_execute(cmd, envv);
+		status = my_execute(cmd, envv);
+		if (status != 0)
+		{
+			return (status);
+		}
 		free(cmd);
 		if (!isatty(STDIN_FILENO))
 		{

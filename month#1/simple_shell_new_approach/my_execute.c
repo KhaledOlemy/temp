@@ -1,6 +1,6 @@
 #include "header.h"
 /* function to execute command */
-void my_execute(char *cmd, char *envv[])
+int my_execute(char *cmd, char *envv[])
 {
 	pid_t c_p;
 	char *temp[1024], *venv[1024];
@@ -14,14 +14,23 @@ void my_execute(char *cmd, char *envv[])
 	}
 	venv[z] = NULL;
 	string_splitter(temp, cmd, "\n ");
-
 	honda = _strdup(temp[0]);
+	if (strcmp(honda, "exit") == 0)
+	{
+		if (temp[1])
+		{
+			return (atoi(temp[1]));
+		}
+		else
+		{
+			return (1);
+		}
+	}
 	foundit = search_in_paths(temp[0], envv);
 	if (!foundit)
 	{
 		free(foundit);
 		_printf("Command '%s' not found\n", temp[0]);
-		return;
 	}
 	c_p = fork();
 	if (c_p == -1)
@@ -43,4 +52,5 @@ void my_execute(char *cmd, char *envv[])
 	{
 		wait(NULL);
 	}
+	return (0);
 }
