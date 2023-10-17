@@ -3,10 +3,10 @@
 int main(void)
 {
 	char *cmd, *path, *envv[1024];
-	int i = 0, controller = 0;
+	int i = 0;
 	exit_struct_t rtrn;
 	
-	while (controller != 1)
+	while (1)
 	{
 		pre_line();
 		cmd = get_user_input();
@@ -24,6 +24,10 @@ int main(void)
 		free(cmd);
 		if (!isatty(STDIN_FILENO))
 		{
+			while (envv[i])
+			{
+				free(envv[i]);
+			}
 			return (0);
 		}
 	}
