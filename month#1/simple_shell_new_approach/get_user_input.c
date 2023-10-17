@@ -10,7 +10,6 @@ char *get_user_input()
 	nchar_read = getline(&buf, &n, stdin);
 	if (nchar_read == -1)
 	{
-		_printf("Exiting shell");
 		return (NULL);
 	}
 	str = _strdup(buf);

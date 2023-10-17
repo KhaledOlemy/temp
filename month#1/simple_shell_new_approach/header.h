@@ -13,9 +13,16 @@
 
 /* shell functions */
 extern char **environ;
+struct exit_struct
+{
+	char *exit_1;
+	int exit_2;
+};
+typedef struct exit_struct exit_struct_t;
+void free_struct(exit_struct_t *d);
 int my_strlen(char *str);
 void simple_print(char *str);
-int my_execute(char *cmd, char *envv[]);
+exit_struct_t my_execute(char *cmd, char *envv[]);
 int pre_line(void);
 char *_strdup(char *str);
 char *get_user_input();
@@ -23,6 +30,7 @@ void string_splitter(char *arr[], char *str, char *dlm);
 char *path_finder(void);
 char *starts_with(char *haystack, char *needle);
 char *search_in_paths(char *command, char *pathlist[]);
+int current_env(void);
 /* shell functions end */
 
 /* printf functions */
@@ -43,5 +51,6 @@ int _special_str(char *s);
 int _string_navigator(char c, char *s);
 int _print_rot13(char *s);
 int _print_rev(char *s);
+
 /* printf functions end */
 #endif

@@ -3,18 +3,23 @@
 int main(void)
 {
 	char *cmd, *path, *envv[1024];
-	int i = 0, controller = 0, status;
+	int i = 0, controller = 0;
+	exit_struct_t rtrn;
 	
 	while (controller != 1)
 	{
 		pre_line();
 		cmd = get_user_input();
+		if (cmd == NULL)
+		{
+			return (0);
+		}
 		path = path_finder();
 		string_splitter(envv, path, ":");
-		status = my_execute(cmd, envv);
-		if (status != 0)
+		rtrn = my_execute(cmd, envv);
+		if (rtrn.exit_1)
 		{
-			return (status);
+			return (rtrn.exit_2);
 		}
 		free(cmd);
 		if (!isatty(STDIN_FILENO))

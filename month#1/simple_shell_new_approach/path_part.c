@@ -38,6 +38,10 @@ char *search_in_paths(char *command, char *pathlist[])
 	char *temoo[1024];
 	char *str_holder = NULL;
 
+	if (access(command, F_OK) == 0)
+	{
+		return (command);
+	}
 	string_splitter(temoo, command, "/");
 	while (temoo[q])
 	{

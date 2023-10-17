@@ -1,11 +1,12 @@
 #include "header.h"
 /* function to execute command */
-int my_execute(char *cmd, char *envv[])
+exit_struct_t my_execute(char *cmd, char *envv[])
 {
 	pid_t c_p;
 	char *temp[1024], *venv[1024];
 	char *honda, *foundit;
 	int z = 0;
+	exit_struct_t new_exit;
 
 	while (environ[z])
 	{
@@ -17,40 +18,54 @@ int my_execute(char *cmd, char *envv[])
 	honda = _strdup(temp[0]);
 	if (strcmp(honda, "exit") == 0)
 	{
+		new_exit.exit_1 = honda;
+		
 		if (temp[1])
 		{
-			return (atoi(temp[1]));
+			new_exit.exit_2 = atoi(temp[1]);
 		}
 		else
 		{
-			return (1);
+			new_exit.exit_2 = 0;
 		}
+		return (new_exit);
+	}
+	new_exit.exit_1 = NULL;
+	if (strcmp(honda, "env") == 0)
+	{
+		current_env();
+		new_exit.exit_2 = 0;
+		return (new_exit);
 	}
 	foundit = search_in_paths(temp[0], envv);
 	if (!foundit)
 	{
 		free(foundit);
 		_printf("Command '%s' not found\n", temp[0]);
+		new_exit.exit_2 = 127;
+		return (new_exit);
 	}
 	c_p = fork();
 	if (c_p == -1)
 	{
-		_printf("Error forking\n");
-		exit(1);
+		_printf("Error Forking\n");
+		new_exit.exit_2 = 126;
+		return (new_exit);
 	}
 	if (c_p == 0)
 	{
-		execve(honda, temp, venv);
 		if (execve(foundit, temp, venv) == -1) /*string type []*/
 		{
 			_printf("Command '%s' not found\n", honda);
+			new_exit.exit_2 = 127;
+			return (new_exit);
 		}
 		free(foundit);
-
 	}
 	else
 	{
 		wait(NULL);
 	}
-	return (0);
+	new_exit.exit_2 = 0;
+	return (new_exit);
 }
